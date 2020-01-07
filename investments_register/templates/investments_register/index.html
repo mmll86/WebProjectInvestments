@@ -1,5 +1,36 @@
 {% extends 'investments_register/base.html' %}
 {% block title %}Index HTML{% endblock %}
 {% block content %}
-    <h1>{{ text }}</h1>
+        <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Фамилия</th>
+                  <th scope="col">Имя</th>
+                  <th scope="col">Отчество</th>
+                  <th scope="col">ДР</th>
+                  <th scope="col">Тариф</th>
+                  <th scope="col">Номер</th>
+                  <th scope="col">От кого:</th>
+                  <th scope="col">Дата создания</th>
+                  <th scope="col">Дата изменения</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for shareholder in shareholders %}
+                <tr>
+                  <th scope="row">{{ shareholder.id }}</th>
+                  <td><a href="{% url 'shareholder_url' shareholder.slug %}">{{ shareholder.lastname }}</a></td>
+                  <td>{{ shareholder.name }}</td>
+                  <td>{{ shareholder.patronymic }}</td>
+                  <td>{{ shareholder.dateOfBirth }}</td>
+                  <td>{{ shareholder.rate }}</td>
+                  <td>{{ shareholder.uniqueNumber }}</td>
+                  <td>{{ shareholder.following }}</td>
+                  <td>{{ shareholder.created }}</td>
+                  <td>{{ shareholder.updated }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
 {% endblock %}

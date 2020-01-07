@@ -8,11 +8,11 @@ admin.site.register(Rate)
 
 @admin.register(ShareholderRegister)
 class ShareholderRegisterAdmin(admin.ModelAdmin):
-	list_display = ('lastname', 'name', 'patronymic', 'levelUser', 'rate', 'uniqueNumber', 'created')
-	list_filter = ('levelUser', 'rate', 'created',)
+	list_display = ('lastname', 'name', 'patronymic', 'levelUser', 'rate', 'uniqueNumber', 'following', 'created',)
+	list_filter = ('levelUser', 'rate', 'created', 'following',)
 	search_fields = ('lastname', 'uniqueNumber',)
 	prepopulated_fields = {'slug': ('lastname', 'uniqueNumber',)}
-	ordering = ('uniqueNumber', 'lastname',)
+	ordering = ('uniqueNumber', 'lastname', 'following',)
 
 
 
