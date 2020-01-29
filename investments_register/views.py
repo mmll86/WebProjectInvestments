@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from .models import ShareholderRegister, Group
+from django.shortcuts import render, get_object_or_404, HttpResponse
+from .models import ShareholderRegister
+import datetime
 
 
 def index(request):
